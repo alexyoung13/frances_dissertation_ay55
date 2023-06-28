@@ -1,0 +1,17 @@
+nltk
+spacy
+rdflib
+SPARQLWrapper
+sklearn
+tqdm
+SPARQLWrapper
+networkx
+bertopic
+umap
+hdbscan
+matplotlib
+pyyaml
+bert-extractive-summarizer
+sentence_transformers
+transformers
+pandas
