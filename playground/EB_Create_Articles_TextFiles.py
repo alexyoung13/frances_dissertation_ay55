@@ -26,33 +26,33 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-def get_document(uri):
-    uri="<"+uri+">"
-    sparql = SPARQLWrapper("http://localhost:3030/edition1st/sparql")
-    query="""
-    PREFIX eb: <https://w3id.org/eb#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT ?definition ?term
-        WHERE {{
-            %s a eb:Article ;
-               eb:name ?term ;
-               eb:definition ?definition . 
-            }
-            UNION {
-            %s a eb:Topic ;
-              eb:name ?term ; 
-              eb:definition ?definition . 
-            }
-       } 
-    """ %(uri, uri)
-    sparql.setQuery(query)
-    sparql.setReturnFormat(JSON)
-    results = sparql.query().convert()
-    term = results["results"]["bindings"][0]["term"]["value"]
-    definition=results["results"]["bindings"][0]["definition"]["value"]
-    return term, definition
+# def get_document(uri):
+#     uri="<"+uri+">"
+#     sparql = SPARQLWrapper("http://localhost:3030/editionClean/sparql")
+#     query="""
+#     PREFIX eb: <https://w3id.org/eb#>
+#     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+#     SELECT ?definition ?term
+#         WHERE {{
+#             %s a eb:Article ;
+#                eb:name ?term ;
+#                eb:definition ?definition . 
+#             }
+#             UNION {
+#             %s a eb:Topic ;
+#               eb:name ?term ; 
+#               eb:definition ?definition . 
+#             }
+#        } 
+#     """ %(uri, uri)
+#     sparql.setQuery(query)
+#     sparql.setReturnFormat(JSON)
+#     results = sparql.query().convert()
+#     term = results["results"]["bindings"][0]["term"]["value"]
+#     definition=results["results"]["bindings"][0]["definition"]["value"]
+#     return term, definition
 
-sparql = SPARQLWrapper("http://localhost:3030/edition1st/sparql")
+sparql = SPARQLWrapper("http://localhost:3030/edition7Clean/sparql")
 query="""
 PREFIX eb: <https://w3id.org/eb#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -85,6 +85,8 @@ SELECT ?definition ?uri ?term ?vnum ?year ?enum ?letters ?part
 
    } 
 """ 
+#?uri eb:definition ?definition .
+print("start query")
 sparql.setQuery(query)
 sparql.setReturnFormat(JSON)
 results = sparql.query().convert()
@@ -92,19 +94,21 @@ results = sparql.query().convert()
 documents=[]
 terms_info=[]
 uris=[]
+results_len = len(results)
+print(results_len)
 for r in results["results"]["bindings"]:
     documents.append(r["definition"]["value"])
-    uris.append(r["uri"]["value"])
-    if "part" in r:
-        terms_info.append([r["term"]["value"], r["enum"]["value"], r["year"]["value"], r["part"]["value"], r["vnum"]["value"], r["letters"]["value"]])
-    else:
-        terms_info.append([r["term"]["value"], r["enum"]["value"], r["year"]["value"], "" , r["vnum"]["value"], r["letters"]["value"]])
+    # uris.append(r["uri"]["value"])
+    # if "part" in r:
+    #     terms_info.append([r["term"]["value"], r["enum"]["value"], r["year"]["value"], r["part"]["value"], r["vnum"]["value"], r["letters"]["value"]])
+    # else:
+    #     terms_info.append([r["term"]["value"], r["enum"]["value"], r["year"]["value"], "" , r["vnum"]["value"], r["letters"]["value"]])
 
 with open('terms_definition.txt', 'wb') as fp:
     pickle.dump(documents, fp)
     
-with open('terms_details.txt', 'wb') as fp2:
-    pickle.dump(terms_info, fp2)
+# with open('terms_details.txt', 'wb') as fp2:
+#     pickle.dump(terms_info, fp2)
     
-with open('terms_uris.txt', 'wb') as fp3:
-    pickle.dump(uris, fp3)
+# with open('terms_uris.txt', 'wb') as fp3:
+#     pickle.dump(uris, fp3)
