@@ -10,7 +10,7 @@ This contains all of the txt files corresponding to the 7th edition of the Encyc
 
 #### Edition 7 vs Edition 7 clean
 
-This repo contains 2 different dataframes and knowledge graphs of the 7th edition. The ones that do not say "clean" are from the xml-based approach from the original frances. The ones that say "clean" are the ones that are created while running the notebooks in this repo and will be replaced each time they are run. The xml-based ones are added to help with comparison.
+This repo is also where dataframes and knowledge graphs of the 7th edition will be stored as they are too large (> 100 MB) to be stored on gitbhub.
 
 ## [Notebooks](https://github.com/alexyoung13/frances_dissertation_ay55/tree/main/Notebooks)
 
