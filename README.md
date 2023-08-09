@@ -1,4 +1,8 @@
 # frances_dissertation_ay55
+
+## Environment
+
+Please create a virtual environment using the requirements.txt file. VSCode makes this quite easy and is reccommended for running this repo.
  
 ## [Data](https://github.com/alexyoung13/frances_dissertation_ay55/tree/main/data)
 
