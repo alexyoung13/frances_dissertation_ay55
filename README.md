@@ -12,7 +12,7 @@ The data necessary for running all of these scripts as well as all intermediate 
 
 This contains all of the txt files corresponding to the 7th edition of the Encyclopedia Britannica from the [Knowledge Project](https://tu-plogan.github.io/source/r_releases.html). This repo only contains the zip file and must be extracted before running any of the scripts.
 
-#### Edition 7 vs Edition 7 clean
+#### Edition 7 Clean
 
 This repo is also where dataframes and knowledge graphs of the 7th edition will be stored as they are too large (> 100 MB) to be stored on gitbhub.
 
