@@ -54,6 +54,6 @@ Input:
 - topics_details.txt: the article, edition number, the year, the volume number, the part number (optional), and letter of all terms or just topics 
 - topics_uris.txt -> the terms and topics uris fromt he KG
 
-Output: topics_summary_7.txt -> the summarized topics
+Output: terms_definitions_final.txt -> the summarized topics
 
 This notebook will use a XLNet transformer model to summarize all topics definitions for processing later on. This will help when trying to find similar terms and other NLP tasks as the models used for embeddings have max sizes of words for the embeddings.
