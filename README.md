@@ -57,3 +57,5 @@ Input:
 Output: terms_definitions_final.txt -> the summarized topics
 
 This notebook will use a XLNet transformer model to summarize all topics definitions for processing later on. This will help when trying to find similar terms and other NLP tasks as the models used for embeddings have max sizes of words for the embeddings.
+
+Note: summarizing using MacBERTh is not quite finished. There is more preprocessing of the data required to ensure the definition does not exceed the max limit of the transformer. However, the code for computing the embeddings is working.
